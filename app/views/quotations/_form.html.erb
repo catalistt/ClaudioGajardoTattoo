@@ -1,0 +1,42 @@
+<%= form_with(model: quotation) do |form| %>
+  <% if quotation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(quotation.errors.count, "error") %> prohibited this quotation from being saved:</h2>
+
+      <ul>
+        <% quotation.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :tattoo_image, "Documento con imágenes de referencia" %>
+    <%= form.file_field :tattoo_image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :detail_tattoo, "Detalle de cómo quieres el tatuaje" %>
+    <%= form.text_field :detail_tattoo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :centimeter, "Centímetros (alto por ancho)" %>
+    <%= form.text_field :centimeter %>
+  </div>
+
+  <div class="field">
+    <%= form.label :body_image, "Documento con imagen de la parte del cuerpo" %>
+    <%= form.file_field :body_image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :detail_body, "Detalles de dónde quieres tu tatuaje" %>
+    <%= form.text_field :detail_body %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

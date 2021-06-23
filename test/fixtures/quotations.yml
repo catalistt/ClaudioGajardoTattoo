@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  client: one
+  detail_tattoo: MyString
+  detail_body: MyString
+  centimeter: MyString
+  approved: false
+  amount: 1
+
+two:
+  client: two
+  detail_tattoo: MyString
+  detail_body: MyString
+  centimeter: MyString
+  approved: false
+  amount: 1

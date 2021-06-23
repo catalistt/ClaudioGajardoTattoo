@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre</strong>
+  <%= @quotation.user.name %>
+</p>
+
+<p>
+  <strong>Detalle del tatuaje</strong>
+  <%= @quotation.detail_tattoo %>
+</p>
+
+
+<%= link_to 'Editar cotización', edit_quotation_path(@quotation) %>
