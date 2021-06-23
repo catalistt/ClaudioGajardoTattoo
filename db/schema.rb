@@ -50,7 +50,6 @@ ActiveRecord::Schema.define(version: 2021_06_22_215303) do
   end
 
   create_table "quotations", force: :cascade do |t|
-    t.bigint "client_id"
     t.string "detail_tattoo"
     t.string "detail_body"
     t.string "centimeter"
@@ -59,7 +58,6 @@ ActiveRecord::Schema.define(version: 2021_06_22_215303) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
-    t.index ["client_id"], name: "index_quotations_on_client_id"
     t.index ["user_id"], name: "index_quotations_on_user_id"
   end
 
@@ -80,6 +78,5 @@ ActiveRecord::Schema.define(version: 2021_06_22_215303) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "quotations", "clients"
   add_foreign_key "quotations", "users"
 end
