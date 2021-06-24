@@ -22,7 +22,7 @@
       <tr>
         <td><%= quotation.created_at.strftime("%d-%m-%Y %I:%M %p") %></td>
         <td><%= quotation.user.name %></td>
-        <td><%= rails_blob_url(quotation.user_image) %></td>
+        <td><%= rails_blob_url(quotation.tattoo_image) %></td>
         <td><%= quotation.detail_tattoo %></td>
         <td><%= quotation.detail_body %></td>
         <td><%= quotation.centimeter %></td>
