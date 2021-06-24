@@ -22,6 +22,7 @@
       <tr>
         <td><%= quotation.created_at.strftime("%d-%m-%Y %I:%M %p") %></td>
         <td><%= quotation.user.name %></td>
+        <td><%= link_to "Abrir imagen", "#{quotation.url_tattoo}" %></td>
         <td><%= quotation.detail_tattoo %></td>
         <td><%= quotation.detail_body %></td>
         <td><%= quotation.centimeter %></td>

@@ -27,7 +27,7 @@ class QuotationsController < ApplicationController
   def create
     @quotation = Quotation.new(quotation_params)
     @quotation.user_id = current_user.id
-
+    @quotation.url_tattoo = @quotation.tattoo_image.service_url
     respond_to do |format|
       if @quotation.save
         format.html { redirect_to @quotation, notice: "Quotation was successfully created." }
@@ -70,7 +70,7 @@ class QuotationsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def quotation_params
       params.require(:quotation).permit(:detail_tattoo, :user_id, :detail_body, :centimeter, :approved, :amount, 
-      :tattoo_image, 
-      :body_image)
+      :tattoo_image, :url_tattoo,
+      :body_image, :url_body)
     end
 end
