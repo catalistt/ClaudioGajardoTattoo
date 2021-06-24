@@ -18,5 +18,6 @@ module ClaudioGajardo
     #
      config.time_zone = "Santiago"
     # config.eager_load_paths << Rails.root.join("extras")
+    
   end
 end
