@@ -27,7 +27,7 @@ class QuotationsController < ApplicationController
   def create
     @quotation = Quotation.new(quotation_params)
     @quotation.user_id = current_user.id
-    @quotation.url_tattoo = @quotation.tattoo_image.service_url
+    @quotation.url_tattoo = Rails.application.routes.url_helpers.rails_blob_path(@quotation.tattoo_image, only_path: true)
     @quotation.url_body = Rails.application.routes.url_helpers.rails_blob_path(@quotation.body_image, only_path: true)
     respond_to do |format|
       if @quotation.save
