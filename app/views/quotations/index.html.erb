@@ -1,45 +1,47 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Cotizaciones</h1>
+<div class="container">
+  <h2>Cotizaciones</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th>Fecha registro</th>
-      <th>Cliente</th>
-      <th>Link tattoo</th>
-      <th>Explicación tatto</th>
-      <th>Link lugar</th>
-      <th>Lugar del cuerpo</th>
-      <th>Centímetros</th>
-      <th>Estado</th>
-      <th>Acciones</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @quotations.each do |quotation| %>
+  <table class="table table-hover bg-light">
+    <thead>
       <tr>
-        <td><%= quotation.created_at.strftime("%d-%m-%Y %I:%M %p") %></td>
-        <td><%= quotation.user.name %></td>
-        <td><%= link_to 'Ver tattoo', rails_blob_url(quotation.tattoo_image) %></td>
-        <td><%= quotation.detail_tattoo %></td>
-        <td><%= link_to 'Ver lugar', rails_blob_url(quotation.tattoo_image) %></td>
-        <td><%= quotation.detail_body %></td>
-        <td><%= quotation.centimeter %></td>
-        <% if quotation.approved.nil? %>
-          <td><%= "Sin aprobación" %></td>  
-        <% else %>
-          <td><%= quotation.approved %></td>
-        <% end %>
-        <td><%= link_to 'Revisar y aprobar', edit_quotation_path(quotation) %></td>
-        <td><%= link_to 'Eliminar cotización', quotation, method: :delete, data: { confirm: 'Estas seguro/a de eliminar la cotización?' } %></td>
+        <th>Fecha registro</th>
+        <th>Cliente</th>
+        <th>Link tattoo</th>
+        <th>Explicación tatto</th>
+        <th>Link lugar</th>
+        <th>Lugar del cuerpo</th>
+        <th>Centímetros</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @quotations.each do |quotation| %>
+        <tr>
+          <td><%= quotation.created_at.strftime("%d-%m-%Y %I:%M %p") %></td>
+          <td><%= quotation.user.name %></td>
+          <td><%= link_to 'Ver tattoo', rails_blob_url(quotation.tattoo_image), class:"btn btn-warning" %></td>
+          <td><%= quotation.detail_tattoo %></td>
+          <td><%= link_to 'Ver lugar', rails_blob_url(quotation.tattoo_image), class:"btn btn-warning"%></td>
+          <td><%= quotation.detail_body %></td>
+          <td><%= quotation.centimeter %></td>
+          <% if quotation.approved.nil? %>
+            <td><%= "Sin aprobación" %></td>  
+          <% else %>
+            <td><%= quotation.approved %></td>
+          <% end %>
+          <td><%= link_to 'Revisar y aprobar', edit_quotation_path(quotation), class:"btn btn-secondary" %></td>
+          <td><%= link_to 'Eliminar cotización', quotation, method: :delete, data: { confirm: 'Estas seguro/a de eliminar la cotización?' }, class:"btn btn-danger" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Quotation', new_quotation_path %>
+  <br>
+
+  <%= link_to 'Nueva cotización', new_quotation_path %>
+</div>

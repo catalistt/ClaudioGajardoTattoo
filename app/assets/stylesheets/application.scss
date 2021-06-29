@@ -1,0 +1,13 @@
+  @import "bootstrap";
+  @import "select2";
+  @import "font-awesome";
+    
+    html, body {
+      margin: 0;
+      height: 100%; 
+      color:black;
+      background-image: url(back5.jpg);
+      backdrop-filter: brightness(150%) saturate(150%) blur(1rem);
+      font-family: 'Oswald', sans-serif;
+      font-size: large;
+  }

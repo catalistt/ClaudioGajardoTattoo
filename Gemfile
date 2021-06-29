@@ -32,6 +32,8 @@ gem 'mini_magick', '~> 4.8'
 gem 'font-awesome-rails'
 gem 'jquery-rails'
 gem 'image_processing', '~> 1.2'
+gem 'bootstrap'
+gem 'select2-rails'
 
 
 
