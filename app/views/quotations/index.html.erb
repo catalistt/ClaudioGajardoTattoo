@@ -5,14 +5,15 @@
 <table>
   <thead>
     <tr>
-      <th>Imagen</th>
       <th>Fecha registro</th>
       <th>Cliente</th>
+      <th>Link tattoo</th>
       <th>Explicación tatto</th>
-      <th>Parte del cuerpo</th>
-      <th>Centimetros</th>
+      <th>Link lugar</th>
+      <th>Lugar del cuerpo</th>
+      <th>Centímetros</th>
       <th>Estado</th>
-      <th>Imagen</th>
+      <th>Acciones</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,12 +23,17 @@
       <tr>
         <td><%= quotation.created_at.strftime("%d-%m-%Y %I:%M %p") %></td>
         <td><%= quotation.user.name %></td>
-        <td><%= rails_blob_url(quotation.tattoo_image) %></td>
+        <td><%= link_to 'Ver tattoo', rails_blob_url(quotation.tattoo_image) %></td>
         <td><%= quotation.detail_tattoo %></td>
+        <td><%= link_to 'Ver lugar', rails_blob_url(quotation.tattoo_image) %></td>
         <td><%= quotation.detail_body %></td>
         <td><%= quotation.centimeter %></td>
-        <td><%= quotation.approved %></td>
-        <td><%= link_to 'Editar cotización', edit_quotation_path(quotation) %></td>
+        <% if quotation.approved.nil? %>
+          <td><%= "Sin aprobación" %></td>  
+        <% else %>
+          <td><%= quotation.approved %></td>
+        <% end %>
+        <td><%= link_to 'Revisar y aprobar', edit_quotation_path(quotation) %></td>
         <td><%= link_to 'Eliminar cotización', quotation, method: :delete, data: { confirm: 'Estas seguro/a de eliminar la cotización?' } %></td>
       </tr>
     <% end %>
